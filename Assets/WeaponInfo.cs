@@ -3,7 +3,7 @@
 public class WeaponInfo : MonoBehaviour
 {
     public enum WeaponType
-    {
+    {  
         Gun,
         Melee, // 근접공격, 총알 없음 다른것도 다 없음
     }
