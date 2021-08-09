@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using System;
 
-public class HealthUI : SingletonMonoBehavior<HealthUI>
+public class HealthUI : GaugeUI<HealthUI>
+{
+
+}
+public class GaugeUI<T> : SingletonMonoBehavior<T>
+   where T : SingletonBase
 {
     TextMeshProUGUI valueText;
     // 이미지들 배열
@@ -18,11 +22,11 @@ public class HealthUI : SingletonMonoBehavior<HealthUI>
         valueText = transform.Find("ValueText").GetComponent<TextMeshProUGUI>();
     }
 
-    internal void SetHp(int hp, int maxHp)
+    internal void SetGauge(int value, int maxValue)
     {  
-        valueText.text = $"{hp}/{maxHp}";
+        valueText.text = $"{value}/{maxValue}";
 
-        float percent = (float)hp / maxHp; // 결과값이 int 로 나오기 때문에 둘 중 하나를 float 으로 바꿔줘야함
+        float percent = (float)value / maxValue; // 결과값이 int 로 나오기 때문에 둘 중 하나를 float 으로 바꿔줘야함
         int currentCount =  Mathf.RoundToInt(percent * Images.Length);
         for (int i = 0; i < Images.Length; i++)
         {

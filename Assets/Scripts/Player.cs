@@ -32,7 +32,7 @@ public partial class Player : Actor
         ChangeWeapon(mainWeapon);
 
         SetCinemachinCamera();
-        HealthUI.Instance.SetHp(hp, maxHp);
+        HealthUI.Instance.SetGauge(hp, maxHp);
     }
 
     GameObject currentWeaponGo;
@@ -226,7 +226,7 @@ public partial class Player : Actor
     new internal void TakeHit(int damage)
     {
         base.TakeHit(damage);
-        HealthUI.Instance.SetHp(hp, maxHp);
+        HealthUI.Instance.SetGauge(hp, maxHp);
         animator.SetTrigger("TakeHit");
 
         if (hp <= 0)

@@ -23,6 +23,7 @@ public partial class Player : Actor
                 bulletCountInClip--;
 
                 animator.SetTrigger("StartFire");
+                AmmoUI.Instance.SetGauge(4, 6);
 
                 shootDelayEndTime = Time.time + shootDelay;
                 switch (currentWeapon.type)
