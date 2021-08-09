@@ -32,10 +32,10 @@ public partial class Player : Actor
         SetCinemachinCamera();
         HealthUI.Instance.SetGauge(hp, maxHp);
 
-        AmmoUI.Instance.SetBulletCount(bulletCountInClip
-            , maxBulletCountInClip
-            , allBulletCount + bulletCountInClip
-            , maxBulletCount);
+        AmmoUI.Instance.SetBulletCount(BulletCountInClip
+            , MaxBulletCountInClip
+            , AllBulletCount + BulletCountInClip
+            , MaxBulletCount);
     }
 
 
@@ -59,7 +59,6 @@ public partial class Player : Actor
         if (currentWeapon.attackCollider)
             currentWeapon.attackCollider.enabled = false;
 
-        bulletPosition = weaponInfo.bulletPosition;
 
         if (weaponInfo.bulletLight != null)   // bulletLight 는 유티니 오브젝트이기 때문에.... ?     물음표문법을 쓰면 안댄다ㅏ
             bulletLight = weaponInfo.bulletLight.gameObject;
@@ -111,17 +110,17 @@ public partial class Player : Actor
     {
         stateType = StateType.Reload;
         animator.SetTrigger("Reload");
-        int reloadCount = Math.Min(allBulletCount, maxBulletCountInClip);
+        int reloadCount = Math.Min(AllBulletCount, MaxBulletCountInClip);
 
         AmmoUI.Instance.StartReload(reloadCount
-            , maxBulletCountInClip
-            , allBulletCount + reloadCount
-            , maxBulletCount
-            , reloadTime);
-        yield return new WaitForSeconds(reloadTime);
+            , MaxBulletCountInClip
+            , AllBulletCount + reloadCount
+            , MaxBulletCount
+            , ReloadTime);
+        yield return new WaitForSeconds(ReloadTime);
         stateType = StateType.Idle;
-        bulletCountInClip = reloadCount;
-        allBulletCount -= reloadCount;
+        BulletCountInClip = reloadCount;
+        AllBulletCount -= reloadCount;
     }
     bool toggleWeapon = false;
     void ToggleChangeWeapon()
