@@ -5,7 +5,13 @@ using UnityEngine;
 
 public class Actor : MonoBehaviour
 {
+    protected void Awake()
+    {// player(자식) 에 엑터가 있따면 엑터에 있는 어웨이크가 실행이 안된다.
+        // 그렇기 때문에 항상 부모에 있는 애들은 protexted로ㅓ 바꿔줘야함
+        maxHp = hp;
+    }
     public int hp = 100;
+    [HideInInspector] public int maxHp;  // 개발자한테 안보여주게 할 것임
     public float bloodEffectYPosition = 1.3f;
 
     public GameObject bloodParticle;

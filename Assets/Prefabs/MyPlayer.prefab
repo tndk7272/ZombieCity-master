@@ -635,7 +635,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 986ffe0f0aa2e244589851f022c79569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10000
+  hp: 100
+  maxHp: 0
   bloodEffectYPosition: 1.3
   bloodParticle: {fileID: 2572967805023668885, guid: 305922be6922b6543b713c2f4f0175c2, type: 3}
   damageColor: {r: 1, g: 0.45499295, b: 0, a: 1}

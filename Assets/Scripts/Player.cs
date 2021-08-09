@@ -24,13 +24,15 @@ public partial class Player : Actor
 
     public WeaponInfo currentWeapon;
     public Transform rightWeaponPosition;
-    private void Awake()
+    new private void Awake()
     {
+        base.Awake(); // 부모에 있는 어웨이크 
         animator = GetComponentInChildren<Animator>();
 
         ChangeWeapon(mainWeapon);
 
         SetCinemachinCamera();
+        HealthUI.Instance.SetHp(hp, maxHp);
     }
 
     GameObject currentWeaponGo;
@@ -224,7 +226,7 @@ public partial class Player : Actor
     new internal void TakeHit(int damage)
     {
         base.TakeHit(damage);
-
+        HealthUI.Instance.SetHp(hp, maxHp);
         animator.SetTrigger("TakeHit");
 
         if (hp <= 0)
