@@ -14,8 +14,6 @@ public partial class Player : Actor
         Reload,
     }
 
-
-
     public bool isFiring = false;
     public StateType stateType = StateType.Idle;
 
@@ -33,7 +31,13 @@ public partial class Player : Actor
 
         SetCinemachinCamera();
         HealthUI.Instance.SetGauge(hp, maxHp);
+
+        AmmoUI.Instance.SetBulletCount(bulletCountInClip
+            , maxBulletCountInClip
+            , allBulletCount + bulletCountInClip
+            , maxBulletCount);
     }
+
 
     GameObject currentWeaponGo;
 
@@ -55,7 +59,6 @@ public partial class Player : Actor
         if (currentWeapon.attackCollider)
             currentWeapon.attackCollider.enabled = false;
 
-        bullet = weaponInfo.bullet;
         bulletPosition = weaponInfo.bulletPosition;
 
         if (weaponInfo.bulletLight != null)   // bulletLight 는 유티니 오브젝트이기 때문에.... ?     물음표문법을 쓰면 안댄다ㅏ
@@ -99,25 +102,27 @@ public partial class Player : Actor
 
     private void ReloadBullet()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(ReloadBulletCo());
         }
     }
-
     private IEnumerator ReloadBulletCo()
     {
         stateType = StateType.Reload;
         animator.SetTrigger("Reload");
-        yield return new WaitForSeconds(reloadTime); 
+        int reloadCount = Math.Min(allBulletCount, maxBulletCountInClip);
+
+        AmmoUI.Instance.StartReload(reloadCount
+            , maxBulletCountInClip
+            , allBulletCount + reloadCount
+            , maxBulletCount
+            , reloadTime);
+        yield return new WaitForSeconds(reloadTime);
         stateType = StateType.Idle;
-        int reloadcount = Math.Min(allBulletCount, MaxBulletCountInClip); // 더 작은 숫자를 리턴한다
-        bulletCountInClip = reloadcount;
-        allBulletCount -= reloadcount;
-        
-
+        bulletCountInClip = reloadCount;
+        allBulletCount -= reloadCount;
     }
-
     bool toggleWeapon = false;
     void ToggleChangeWeapon()
     {
@@ -205,7 +210,7 @@ public partial class Player : Actor
 
             transform.Translate(move * _speed * Time.deltaTime, Space.World);
 
-
+            //* transform.forward 는 마우스 방향이다
             if (Mathf.RoundToInt(transform.forward.x) == 1 || Mathf.RoundToInt(transform.forward.x) == -1)
             {
                 animator.SetFloat("DirX", transform.forward.z * move.z);

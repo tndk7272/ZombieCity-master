@@ -642,40 +642,13 @@ MonoBehaviour:
   damageColor: {r: 1, g: 0.45499295, b: 0, a: 1}
   isFiring: 0
   stateType: 0
-  mainWeapon: {fileID: 7644390605715198751, guid: 81d91e0bf87f83242af983b4feece740, type: 3}
-  subWeapon: {fileID: -2839422016094302242, guid: 9a682711780c43a49a1644c3ac793cf5, type: 3}
+  mainWeapon: {fileID: -2839422016094302242, guid: 9a682711780c43a49a1644c3ac793cf5, type: 3}
+  subWeapon: {fileID: 7644390605715198751, guid: 81d91e0bf87f83242af983b4feece740, type: 3}
   currentWeapon: {fileID: 0}
   rightWeaponPosition: {fileID: 6877748109125742641}
   rollingSpeedAc:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.0044391938
-      value: 1.4649785
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1.0006639
-      value: 1.8972785
-      inSlope: -0.24447551
-      outSlope: -0.24447551
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1.0030141
-      value: 1.0113395
-      inSlope: -12.281607
-      outSlope: 0.5248564
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.09202136
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -683,10 +656,11 @@ MonoBehaviour:
   diePreDelayTime: 0.3
   speed: 5
   speedWhileShooting: 3
-  bulletCountInClip: 500
-  MaxBulletCountInClip: 2
-  allBulletCount: 6
-  reloadTime: 30
+  bulletCountInClip: 2
+  maxBulletCountInClip: 500
+  allBulletCount: 500
+  maxBulletCount: 500
+  reloadTime: 1
   bullet: {fileID: 9021006395178722910, guid: 0b938b7a65c05784aab3c59a0e89f7cc, type: 3}
   bulletPosition: {fileID: 0}
   bulletFlashTime: 0.001
