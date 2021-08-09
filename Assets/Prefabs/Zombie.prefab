@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 4129650614387924152}
   - component: {fileID: 1013158537}
   - component: {fileID: 1013158538}
+  - component: {fileID: 219776199}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Zombie
@@ -143,7 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bbc3880a3926c34dbb22e834cfa69b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100000
+  hp: 100
+  maxHp: 0
   bloodEffectYPosition: 1.3
   bloodParticle: {fileID: 2572967805023668885, guid: 305922be6922b6543b713c2f4f0175c2, type: 3}
   damageColor: {r: 0.9427508, g: 1, b: 0, a: 1}
@@ -155,10 +157,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   power: 20
+  moveBackDistance: 1
   moveBackNoise: 0.1
+  moveBackDuration: 0.5
+  moveBackEase: 12
   TakeHitStopSpeedTime: 0.1
   onDieDelayDestroy: 2
   rewardScore: 100
+  dieMaterial: {fileID: 2100000, guid: d16b8a6354c2f694887ee7e88901a5f6, type: 2}
+  dieMaterialDuration: 2
 --- !u!195 &4129650614387924152
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -210,6 +217,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.6920267
   m_Center: {x: -6.777014e-11, y: 0.9799988, z: 0.19202667}
+--- !u!114 &219776199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4129650614387924149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a3d9036c9e52648980f556e84727c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItems:
+  - ratio: 1
+    go: {fileID: 44549865304382755, guid: e38744112db84124f8913451fed42fed, type: 3}
+  eventType: 0
 --- !u!1001 &4129650615626348477
 PrefabInstance:
   m_ObjectHideFlags: 0

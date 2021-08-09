@@ -150,7 +150,7 @@ public class Zombie : Actor
     internal void TakeHit(int damage, Vector3 toMoveDirection
         , float pushBackDistance = 0.1f)
     {
-        base. TakeHit(damage);
+        base.TakeHit(damage);
         if (hp <= 0)
         {
             GetComponent<Collider>().enabled = false;
@@ -197,11 +197,11 @@ public class Zombie : Actor
         toMoveDirection.y = 0;
         toMoveDirection.Normalize();
 
-        transform.DOMove(transform.position + 
+        transform.DOMove(transform.position +
             toMoveDirection * _moveBackDistance * moveBackDistance, moveBackDuration)
             .SetEase(moveBackEase);
     }
-   
+
 
     public float TakeHitStopSpeedTime = 0.1f;
     public float onDieDelayDestroy = 2f;
@@ -210,10 +210,30 @@ public class Zombie : Actor
         agent.speed = originalSpeed;
     }
     public int rewardScore = 100; // 몬스터마다 다른 점수를 주기 위한 변수
+    public Material dieMaterial; // 죽을때 메테리얼 
+    public float dieMaterialDuration = 2; // 2초 동안 바뀌게 할것이다
+
     void Die()
     {
         StageManager.Instance.AddScore(rewardScore); // 좀비 죽일때마다 점수 100점
-        Destroy(gameObject, onDieDelayDestroy);
-        
+
+        // 메테리얼 교체
+        // 메테리얼 가져오쟝
+        var renderers = GetComponentsInChildren<Renderer>(true);
+        foreach (var item in renderers)
+        {
+            item.sharedMaterial = dieMaterial;
+        }
+
+        dieMaterial.SetFloat("_Progress", 1);
+        // 좀비가 완전히 사라졌는데 코인이 좀 늦게 떨어지기 때문에 0.14를 endvalue로 넣어쥼
+        DOTween.To(() => 1f, (x) => dieMaterial.SetFloat("_Progress", x), 0.14f, dieMaterialDuration)
+            .SetDelay(onDieDelayDestroy)
+            .OnComplete(() => Destroy(gameObject));
+
+
+        // 교체되는 동안 보여주ㅗ고 파괴
+
+
     }
 }
