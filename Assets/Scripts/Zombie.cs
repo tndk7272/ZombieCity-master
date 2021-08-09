@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -185,14 +186,20 @@ public class Zombie : Actor
         // 추격하는 Fsm 으로 돌릴 것 임
         CurrentFsm = ChaseFSM;
     }
+    public float moveBackDistance = 1f;
     public float moveBackNoise = 0.1f;
-    private void PushBackMove(Vector3 toMoveDirection, float moveBackDistance)
+    public float moveBackDuration = 0.5f;
+    public Ease moveBackEase = Ease.OutQuart;  // 닷트윈 그래프
+    private void PushBackMove(Vector3 toMoveDirection, float _moveBackDistance)
     {
         toMoveDirection.x += Random.Range(-moveBackNoise, moveBackNoise);
         toMoveDirection.z += Random.Range(-moveBackNoise, moveBackNoise);
         toMoveDirection.y = 0;
         toMoveDirection.Normalize();
-        transform.Translate(toMoveDirection * moveBackDistance, Space.World);
+
+        transform.DOMove(transform.position + 
+            toMoveDirection * _moveBackDistance * moveBackDistance, moveBackDuration)
+            .SetEase(moveBackEase);
     }
    
 
