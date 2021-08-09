@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class WeaponInfo : MonoBehaviour
 {
@@ -33,6 +34,15 @@ public class WeaponInfo : MonoBehaviour
     // 밀리어택 
     [Header("빠따")]
     public float attackStartTime = 0.1f; // 휘둘러서 어택 컬라이더가 활성화 되는 시간
+    public float attakckTime = 0.4f;
+    internal void Init()
+    {
+        allBulletCount = Math.Min(allBulletCount, maxBulletCount);
+        int reloadCount = Math.Min(allBulletCount, maxBulletCountInClip);
+        allBulletCount -= reloadCount;
+        bulletCountInClip = reloadCount;
+    }
+
     public float attackTime = 0.4f;      // 공격이 진행되고 있는 시간
     public Collider attackCollider;
 

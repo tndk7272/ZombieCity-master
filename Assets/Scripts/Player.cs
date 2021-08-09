@@ -27,9 +27,15 @@ public partial class Player : Actor
         base.Awake(); // 부모에 있는 어웨이크 
         animator = GetComponentInChildren<Animator>();
 
+        if (mainWeapon)
+            mainWeapon.Init();
+        if (subWeapon)
+            subWeapon.Init();
+
         ChangeWeapon(mainWeapon);
 
         SetCinemachinCamera();
+
         HealthUI.Instance.SetGauge(hp, maxHp);
 
         AmmoUI.Instance.SetBulletCount(BulletCountInClip
