@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 1920394961}
-  m_PathPosition: -13.36795
+  m_PathPosition: -14.69
   m_PositionUnits: 1
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
@@ -2447,7 +2447,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731637589}
-  m_LocalRotation: {x: -0.10821182, y: 0.7636173, z: -0.62254375, w: -0.13273351}
+  m_LocalRotation: {x: -0.1082119, y: 0.7636173, z: -0.62254375, w: -0.13273358}
   m_LocalPosition: {x: -20.055437, y: 0, z: -15.156681}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3883,7 +3883,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.27519608, y: -0.016347332, z: 0.0046801344, w: 0.9612377}
+  m_LocalRotation: {x: 0.27519608, y: -0.016347365, z: 0.0046801437, w: 0.9612377}
   m_LocalPosition: {x: -21.467953, y: 7.6, z: -3.4308338}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4079,7 +4079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 346041374}
-  m_PathPosition: 7.753927
+  m_PathPosition: 7.036497
   m_PositionUnits: 1
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
@@ -7263,7 +7263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 1049417100}
-  m_PathPosition: 9.502074
+  m_PathPosition: 9.078839
   m_PositionUnits: 1
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
@@ -8191,7 +8191,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133392930}
-  m_LocalRotation: {x: 0.27519608, y: -0.016347332, z: 0.0046801344, w: 0.9612377}
+  m_LocalRotation: {x: 0.27519608, y: -0.016347365, z: 0.0046801437, w: 0.9612377}
   m_LocalPosition: {x: -13.916619, y: 0, z: -23.44085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8566,6 +8566,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 741442529263720192, guid: b80d6964f0b26644d95e70b6cf9ac617, type: 3}
+      propertyPath: isFiring
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3585088117175673566, guid: b80d6964f0b26644d95e70b6cf9ac617, type: 3}
       propertyPath: m_Name
       value: MyPlayer
