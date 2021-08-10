@@ -22,8 +22,6 @@ where T : SingletonBase
     {
         valueText.text = $"{value}/{maxValue}";
 
-        int testInt = value / maxValue;
-        print(testInt);
 
         float percent = (float)value / maxValue; // 0.5 * images.Length(8) = 4
         int currentCount = Mathf.RoundToInt(percent * images.Length) - 1;
