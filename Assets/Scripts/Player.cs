@@ -43,6 +43,7 @@ public partial class Player : Actor
             , MaxBulletCountInClip
             , AllBulletCount + BulletCountInClip
             , MaxBulletCount);
+
     }
 
     private void InitWeapon(WeaponInfo weaponInfo)

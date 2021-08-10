@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8462907783978992130}
   - component: {fileID: 8462907783978992128}
   - component: {fileID: 8462907783978992129}
+  - component: {fileID: 709043572}
   m_Layer: 7
   m_Name: TalkEffect
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8462907783978992131}
-  m_LocalRotation: {x: -0.004441559, y: 0.9654463, z: 0.26004204, w: 0.016491532}
+  m_LocalRotation: {x: -0.00444153, y: 0.9654454, z: 0.2600453, w: 0.016489645}
   m_LocalPosition: {x: -0.01, y: 0.38, z: 0.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -33,7 +34,7 @@ Transform:
   - {fileID: 8462907785560902082}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -30.15, y: 178.043, z: 0}
 --- !u!1183024399 &8462907783978992128
 LookAtConstraint:
   m_ObjectHideFlags: 0
@@ -65,6 +66,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9377dbdbf12edaa48be3b0461489a2fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &709043572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462907783978992131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95737d8fd37c2204abca9dbb93c56a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 2
+  OnEnableLog: 0
+  OnDisableLog: 0
+  OnDestroyLog: 0
+  StopOnLog: 0
 --- !u!1 &8462907784977019514
 GameObject:
   m_ObjectHideFlags: 0
