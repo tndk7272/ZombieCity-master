@@ -71,7 +71,7 @@ public partial class Player : Actor
                     lastTarget = nearestZombie.transform;
                     var array = multiAimConstraint.data.sourceObjects;
                     array.Clear();
-                    array.Add(new WeightedTransform(nearestZombie.transform, 1));
+                    array.Add(new WeightedTransform(lastTarget, 1));
                     multiAimConstraint.data.sourceObjects = array;
                     rigBuilder.Build();
                 }
