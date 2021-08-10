@@ -26,11 +26,15 @@ public class Actor : MonoBehaviour
     }
 
     public static void CreateTextEffect(int number, Vector3 position, Color color)
-    {        
+    {
+        CreateTextEffect(number.ToNumber(), "TextEffect", position, color);
+    }
+    public static void CreateTextEffect(string str,string prefabName, Vector3 position, Color color)
+    {
         GameObject memoryGo = (GameObject)Resources.Load("TextEffect");
         GameObject go = Instantiate(memoryGo, position, Camera.main.transform.rotation); 
-        TextMeshPro textMeshPro = go.GetComponent<TextMeshPro>();
-        textMeshPro.text = number.ToNumber();
+        TextMeshPro textMeshPro = go.GetComponentInChildren<TextMeshPro>(); // 자신에게 TextMeshPro가 있는것이 아니고 자식에게 TextMeshPro가 있으니까 칠드런으로 바꿔줌
+        textMeshPro.text = str;
         textMeshPro.color = color;
     }
 
