@@ -66,7 +66,7 @@ public partial class Player : Actor
                 {
                     reloadAlertDelayEndTime = Time.time + reloadAlertDelay;
                     // 리로드 글자를 표시하자
-                    CreateTextEffect("Reload!", "TalkEffect", transform.position, Color.white); 
+                    CreateTextEffect("Reload!", "TalkEffect", transform.position, Color.white, transform); 
                 }
                 
             }

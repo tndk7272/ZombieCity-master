@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -29,7 +30,7 @@ public class Actor : MonoBehaviour
     {
         CreateTextEffect(number.ToNumber(), "TextEffect", position, color);
     }
-    public static void CreateTextEffect(string str,string prefabName, Vector3 position, Color color)
+    public static void CreateTextEffect(string str,string prefabName, Vector3 position, Color color, Transform parent = null)
     {
         GameObject memoryGo = (GameObject)Resources.Load("TextEffect");
         GameObject go = Instantiate(memoryGo, position, Camera.main.transform.rotation); 
