@@ -28,7 +28,12 @@ public partial class Player : Actor
         animator = GetComponentInChildren<Animator>();
 
         if (mainWeapon)
+        {  // 프리펩 폴더에 있는 Gun의 값이 바뀌던 것을 안바뀌게 수정
+            var weaponInfo = Instantiate(mainWeapon, transform);
+            weaponInfo.Init();
+            weaponInfo.gameObject.SetActive(false);
             mainWeapon.Init();
+        } 
         if (subWeapon)
             subWeapon.Init();
 
