@@ -20,20 +20,16 @@ public partial class Player : Actor
     public WeaponInfo mainWeapon;
     public WeaponInfo subWeapon;
 
+
+
     public WeaponInfo currentWeapon;
     public Transform rightWeaponPosition;
     new private void Awake()
     {
         base.Awake(); // 부모에 있는 어웨이크 
         animator = GetComponentInChildren<Animator>();
-
-        if (mainWeapon)
-        {  // 프리펩 폴더에 있는 Gun의 값이 바뀌던 것을 안바뀌게 수정
-            var weaponInfo = Instantiate(mainWeapon, transform);
-            weaponInfo.Init();
-            weaponInfo.gameObject.SetActive(false);
-            mainWeapon.Init();
-        } 
+        InitWeapon(mainWeapon);
+        InitWeapon(subWeapon);
         if (subWeapon)
             subWeapon.Init();
 
@@ -49,6 +45,16 @@ public partial class Player : Actor
             , MaxBulletCount);
     }
 
+    private void InitWeapon(WeaponInfo weaponInfo)
+    {
+        if (weaponInfo)
+        {  // 프리펩 폴더에 있는 Gun의 값이 바뀌던 것을 안바뀌게 수정
+            // 플레이 하면 player 밑에 Gun이랑 Bat 가 생기고 거기에 있는 값이 바뀐다
+            weaponInfo = Instantiate(weaponInfo, transform);
+            weaponInfo.Init();
+            weaponInfo.gameObject.SetActive(false);
+        }
+    }
 
     GameObject currentWeaponGo;
 
