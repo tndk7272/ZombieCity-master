@@ -1,7 +1,11 @@
 ﻿using Cinemachine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
+
 public partial class Player : Actor
 {
     public enum StateType
@@ -44,6 +48,28 @@ public partial class Player : Actor
             , AllBulletCount + BulletCountInClip
             , MaxBulletCount);
 
+    }
+
+    private IEnumerator Start()
+    {
+        MultiAimConstraint multiAimConstraint = GetComponentInChildren<MultiAimConstraint>();
+        while (stateType != StateType.Die)
+        {
+            List<Zombie> allZombies = new List<Zombie>(FindObjectsOfType<Zombie>());
+            if (allZombies.Count > 0)
+            {
+                // 가장 가까운 좀비를 찾는다
+                var nearestZombie = allZombies.OrderBy(x => Vector3.Distance(x.transform.position, transform.position))
+                             .First();
+                // 첫번째에 있는 타겟을 트랜스폼 지정한다
+                var array = multiAimConstraint.data.sourceObjects;
+                array.Clear();
+                array.Add(new WeightedTransform(nearestZombie.transform, 1));
+                multiAimConstraint.data.sourceObjects = array;
+            }
+
+            yield return new WaitForSeconds(1);
+        }
     }
 
     private void InitWeapon(WeaponInfo weaponInfo)
