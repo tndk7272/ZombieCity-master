@@ -34,9 +34,7 @@ public partial class Player : Actor
         animator = GetComponentInChildren<Animator>();
         InitWeapon(mainWeapon);
         InitWeapon(subWeapon);
-        if (subWeapon)
-            subWeapon.Init();
-
+    
         ChangeWeapon(mainWeapon);
 
         SetCinemachinCamera();
@@ -49,15 +47,31 @@ public partial class Player : Actor
             , MaxBulletCount);
 
     }
+    private void Start()
+    {
+       settingLookAtTargetCoHandle = StartCoroutine (SettingLookAtTargetCo());
+    }
+    Coroutine settingLookAtTargetCoHandle;
+    internal void RetargetingLookAt()
+    {
+        MultiAimConstraint multiAimConstraint = GetComponentInChildren<MultiAimConstraint>();
+        multiAimConstraint.data.sourceObjects = new WeightedTransformArray();
+        GetComponentInChildren<RigBuilder>().Build();
 
-    private IEnumerator Start()
+        StopCoroutine(settingLookAtTargetCoHandle);
+        settingLookAtTargetCoHandle = StartCoroutine(SettingLookAtTargetCo());
+    }
+
+    
+    private IEnumerator SettingLookAtTargetCo()
     {
         MultiAimConstraint multiAimConstraint = GetComponentInChildren<MultiAimConstraint>();
         RigBuilder rigBuilder = GetComponentInChildren<RigBuilder>(); // 강사님은 이 코드 있어야 작동 하던데 난 없어두 잘됨 웨지감자 ..
         while (stateType != StateType.Die)
         {
-            List<Zombie> allZombies = new List<Zombie>(FindObjectsOfType<Zombie>());
-           
+
+
+            List<Zombie> allZombies = Zombie.Zombies;
             Transform lastTarget = null;
             if (allZombies.Count > 0)
             {
@@ -151,6 +165,8 @@ public partial class Player : Actor
                 ToggleChangeWeapon();
         }
     }
+
+ 
 
     private void ReloadBullet()
     {
