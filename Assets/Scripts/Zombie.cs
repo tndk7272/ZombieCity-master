@@ -157,7 +157,7 @@ public class Zombie : Actor
         base.TakeHit(damage);
         if (hp <= 0)
         {
-            Zombies.Remove(this); // 좀비가 죽었을때 오류 나는거 해결
+            Zombies.Remove(this); 
             FindObjectOfType<Player>().RetargetingLookAt();
 
             GetComponent<Collider>().enabled = false;
