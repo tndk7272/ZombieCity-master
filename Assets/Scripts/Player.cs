@@ -53,19 +53,28 @@ public partial class Player : Actor
     private IEnumerator Start()
     {
         MultiAimConstraint multiAimConstraint = GetComponentInChildren<MultiAimConstraint>();
+        RigBuilder rigBuilder = GetComponentInChildren<RigBuilder>(); // 강사님은 이 코드 있어야 작동 하던데 난 없어두 잘됨 웨지감자 ..
         while (stateType != StateType.Die)
         {
             List<Zombie> allZombies = new List<Zombie>(FindObjectsOfType<Zombie>());
+           
+            Transform lastTarget = null;
             if (allZombies.Count > 0)
             {
                 // 가장 가까운 좀비를 찾는다
                 var nearestZombie = allZombies.OrderBy(x => Vector3.Distance(x.transform.position, transform.position))
                              .First();
+
                 // 첫번째에 있는 타겟을 트랜스폼 지정한다
-                var array = multiAimConstraint.data.sourceObjects;
-                array.Clear();
-                array.Add(new WeightedTransform(nearestZombie.transform, 1));
-                multiAimConstraint.data.sourceObjects = array;
+                if (lastTarget != nearestZombie.transform)  // 마지막에 있는 좀비가 바뀌었을때만 찾도록 ?? 최적화
+                {
+                    lastTarget = nearestZombie.transform;
+                    var array = multiAimConstraint.data.sourceObjects;
+                    array.Clear();
+                    array.Add(new WeightedTransform(nearestZombie.transform, 1));
+                    multiAimConstraint.data.sourceObjects = array;
+                    rigBuilder.Build();
+                }
             }
 
             yield return new WaitForSeconds(1);
