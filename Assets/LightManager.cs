@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 // 밤의 색이랑 // 낮 색을 넣을것이다. 
-public class LightManager : MonoBehaviour
+public class LightManager : SingletonMonoBehavior<LightManager>
 {
     public Color dayColor; // 낮
     public Color nightColor; // 밤 
@@ -51,10 +51,25 @@ public class LightManager : MonoBehaviour
             ChangeDayLight();
         if (Input.GetKeyDown(KeyCode.Alpha6))
             ChangeNightLight();
-     
-    }
 
-    
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+            ToggleLight();
+
+    }
+    bool isDay = true;
+    public void ToggleLight()
+    {
+        if(isDay)
+        {
+            ChangeNightLight();
+        }
+        else
+        {
+            ChangeDayLight();
+        }
+        isDay = !isDay;
+
+    }
 
     public float changeDuration = 3;
     // 모든 라이트의 인ㅌㅌㅌㅌㅌ를 저장할것임
