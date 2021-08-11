@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class SpawnManager : SingletonMonoBehavior<SpawnManager>
 {
     public int currentWaveIndex; // 웨이브 할것임 첫번째 웨이브 두번째 웨이브 - - -
 
     [System.Serializable]
-    public class RegenInfo   // 몬스터리젠 정보
+    public class RegenMonsterInfo   // 몬스터리젠 정보
     {
         public GameObject monster;
         public float ratio; // 확률
@@ -18,14 +19,15 @@ public class SpawnManager : SingletonMonoBehavior<SpawnManager>
     public class WaveInfo
     {
         public int spawnCount = 10;
+
+        public List<RegenMonsterInfo> monsters;
         // 웨이브당 몇마리의 , 어떤 몬스터가 생성될지
-        public GameObject monster;
         public float time;
 
     }
 
     public List<WaveInfo> waves;
-    float nextWaveStartTime ;
+    float nextWaveStartTime;
     public void OnClearAllMonster()
     {
         // 몬스터 다 죽이면
@@ -43,7 +45,9 @@ public class SpawnManager : SingletonMonoBehavior<SpawnManager>
             {
                 int spawnIndex = Random.Range(0, spawnPoints.Length);
                 Vector3 spawnPoint = spawnPoints[spawnIndex].transform.position;
-                Instantiate(item.monster, spawnPoint, Quaternion.identity);
+                var monster = item.monsters.OrderBy(x => Random.Range(0, x.ratio)).Last().monster;
+               
+                Instantiate(monster, spawnPoint, Quaternion.identity);
             }
 
             float newxtWaveStartTime = Time.time + item.time;   // 현재 시간 + 지금 웨이브의 시간  
