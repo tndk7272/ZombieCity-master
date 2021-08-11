@@ -90,7 +90,6 @@ public partial class Player : Actor
                     rigBuilder.Build();
                 }
             }
-
             yield return new WaitForSeconds(1);
         }
     }
@@ -238,18 +237,20 @@ public partial class Player : Actor
     }
 
 
-
+    // 무한한 방향만 있움        
     Plane plane = new Plane(new Vector3(0, 1, 0), 0);
 
     private void LookAtMouse()
     {
+        Camera mainCamere = Camera.main;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (plane.Raycast(ray, out float enter))
         {
             Vector3 hitPoint = ray.GetPoint(enter);
             Vector3 dir = hitPoint - transform.position;
-            dir.y = transform.position.y;
+            // dir.y = transform.position.y;
+            dir.y = 0;
             dir.Normalize();
             transform.forward = dir;
         }

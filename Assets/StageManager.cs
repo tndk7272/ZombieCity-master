@@ -38,7 +38,7 @@ public class StageManager : SingletonMonoBehavior<StageManager>
     {
         gold += amount;
 
-        Debug.Log(amount);
+       // Debug.Log(amount);
         GoldUIRefresh();
     }
 
