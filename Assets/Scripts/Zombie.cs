@@ -157,7 +157,12 @@ public class Zombie : Actor
         base.TakeHit(damage);
         if (hp <= 0)
         {
-            Zombies.Remove(this); 
+
+            Zombies.Remove(this);
+
+            if (Zombies.Count == 0)
+                SpawnManager.Instance.OnClearAllMonster();
+
             FindObjectOfType<Player>().RetargetingLookAt();
 
             GetComponent<Collider>().enabled = false;

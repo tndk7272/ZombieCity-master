@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+public class SpawnManager : SingletonMonoBehavior<SpawnManager>
 {
     public int currentWaveIndex; // 웨이브 할것임 첫번째 웨이브 두번째 웨이브 - - -
 
@@ -25,7 +25,12 @@ public class SpawnManager : MonoBehaviour
     }
 
     public List<WaveInfo> waves;
-
+    float nextWaveStartTime ;
+    public void OnClearAllMonster()
+    {
+        // 몬스터 다 죽이면
+        nextWaveStartTime = 0;
+    }
 
     IEnumerator Start()
     {

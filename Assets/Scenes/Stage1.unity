@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 1920394961}
-  m_PathPosition: -14.69
+  m_PathPosition: -11.490511
   m_PositionUnits: 1
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
@@ -1183,7 +1183,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403561708}
-  m_LocalRotation: {x: 0.10832529, y: 0.023176257, z: -0.0025261305, w: 0.9938421}
+  m_LocalRotation: {x: 0.10832531, y: 0.02317629, z: -0.002526135, w: 0.9938421}
   m_LocalPosition: {x: -28.162205, y: 0, z: -5.151703}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1681,7 +1681,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568755484}
-  m_LocalRotation: {x: 0.11199638, y: -0.0025631464, z: 0.0002888816, w: 0.9937053}
+  m_LocalRotation: {x: 0.11199638, y: -0.0025631636, z: 0.00028888352, w: 0.9937053}
   m_LocalPosition: {x: -53.02923, y: 0, z: -8.603409}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2813,6 +2813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c480684a14185489ade93faf7d63df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  completeUiInite: 0
   dayColor: {r: 0.745283, g: 0.61521006, b: 0.64772826, a: 1}
   nightColor: {r: 0.12156863, g: 0.12156863, b: 0.29411766, a: 0}
   changeDuration: 3
@@ -4300,8 +4301,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bbe3dc0668ac3498ac4537dd8a331a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCount: 10
-  monster: {fileID: 1511576350}
+  completeUiInite: 0
+  currentWaveIndex: 0
+  waves:
+  - spawnCount: 3
+    monster: {fileID: 4129650614387924149, guid: 96177ed1074c0264b946e9780eb68506, type: 3}
+    time: 10
+  - spawnCount: 7
+    monster: {fileID: 4129650614387924149, guid: 96177ed1074c0264b946e9780eb68506, type: 3}
+    time: 10
 --- !u!4 &995189668
 Transform:
   m_ObjectHideFlags: 0
@@ -6440,11 +6448,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c7d5dece75cf9845ad850601668e7d8, type: 3}
---- !u!1 &1511576350 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4129650614387924149, guid: 96177ed1074c0264b946e9780eb68506, type: 3}
-  m_PrefabInstance: {fileID: 4129650614461484592}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1528909321
 PrefabInstance:
   m_ObjectHideFlags: 0
