@@ -684,6 +684,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1719929446}
     m_Modifications:
+    - target: {fileID: 2098919472592871561, guid: 11d85516a25f59642b70aedde0c11dc5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2098919472592871607, guid: 11d85516a25f59642b70aedde0c11dc5, type: 3}
       propertyPath: m_Color.a
       value: 0.41960785
@@ -699,6 +703,14 @@ PrefabInstance:
     - target: {fileID: 2098919472592871607, guid: 11d85516a25f59642b70aedde0c11dc5, type: 3}
       propertyPath: m_Color.r
       value: 0.03773582
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098919472645969486, guid: 11d85516a25f59642b70aedde0c11dc5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098919472966263516, guid: 11d85516a25f59642b70aedde0c11dc5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2098919472980391364, guid: 11d85516a25f59642b70aedde0c11dc5, type: 3}
       propertyPath: m_Pivot.x
@@ -790,7 +802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2098919472980391367, guid: 11d85516a25f59642b70aedde0c11dc5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11d85516a25f59642b70aedde0c11dc5, type: 3}
@@ -1026,6 +1038,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1650264434 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2098919472980391362, guid: 11d85516a25f59642b70aedde0c11dc5, type: 3}
+  m_PrefabInstance: {fileID: 1308351550}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbda2773d270c64b95a0cc92b03fc5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1719929442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,7 +1178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0ee9f0c130a5cd41a7c4a3f48dae26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingUI: {fileID: 0}
+  loadingUI: {fileID: 1650264434}
 --- !u!4 &1796857047
 Transform:
   m_ObjectHideFlags: 0
