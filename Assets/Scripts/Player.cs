@@ -318,6 +318,13 @@ public partial class Player : Actor
 
         yield return new WaitForSeconds(diePreDelayTime);
         animator.SetTrigger("Die");
+
+        // 죽으면 GameResultUI 가 표시되게 하자
+        GameResultUI.Instance.ShowResult(
+            StageManager.Instance.score
+            , StageManager.Instance.highScore);
+
+    
     }
 
     public float speed = 5;

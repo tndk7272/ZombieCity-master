@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 110120219}
   - component: {fileID: 110120218}
   m_Layer: 5
-  m_Name: Star
+  m_Name: StarScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1372,7 +1372,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403561708}
-  m_LocalRotation: {x: 0.10832529, y: 0.023176257, z: -0.0025261305, w: 0.9938421}
+  m_LocalRotation: {x: 0.10832529, y: 0.023176294, z: -0.0025261345, w: 0.9938421}
   m_LocalPosition: {x: -28.162205, y: 0, z: -5.151703}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4225,7 +4225,7 @@ GameObject:
   - component: {fileID: 939628197}
   - component: {fileID: 939628196}
   m_Layer: 5
-  m_Name: 12345
+  m_Name: youScoreNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7716,6 +7716,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb33a28abecb4814f8ae4b4e3bc09371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  completeUiInite: 0
+  startScores:
+  - minScore: 100
+    sprite: {fileID: 21300000, guid: 75f7821589eecb34382c237011f59295, type: 3}
+  - minScore: 300
+    sprite: {fileID: 21300000, guid: 60e4ccb95293c7e4a89fc6d5a93c68b9, type: 3}
+  - minScore: 500
+    sprite: {fileID: 21300000, guid: f2ed45b9661814745aa164b1e17d6976, type: 3}
+  - minScore: 1000
+    sprite: {fileID: 21300000, guid: 6eb860842107f3b4c978d8594b390240, type: 3}
 --- !u!1001 &1686154427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9472,7 +9482,7 @@ GameObject:
   - component: {fileID: 2087407874}
   - component: {fileID: 2087407873}
   m_Layer: 5
-  m_Name: 9999
+  m_Name: bestScoreNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
