@@ -34,6 +34,8 @@ public class SpawnManager : SingletonMonoBehavior<SpawnManager>
         nextWaveStartTime = 0;
     }
 
+    public float randomRegenDelayMax = 0.5f;
+
     IEnumerator Start()
     {
         var spawnPoints = GetComponentsInChildren<SpawnPoint>(true);
@@ -46,15 +48,16 @@ public class SpawnManager : SingletonMonoBehavior<SpawnManager>
                 int spawnIndex = Random.Range(0, spawnPoints.Length);
                 Vector3 spawnPoint = spawnPoints[spawnIndex].transform.position;
                 var monster = item.monsters.OrderBy(x => Random.Range(0, x.ratio)).Last().monster;
-               
+
                 Instantiate(monster, spawnPoint, Quaternion.identity);
+                yield return new WaitForSeconds(Random.Range(0, randomRegenDelayMax));
             }
 
             float newxtWaveStartTime = Time.time + item.time;   // 현재 시간 + 지금 웨이브의 시간  
             while (Time.time < newxtWaveStartTime)   // 현재 시간이 넥스트 타임보다 작다면 기다리자
                 yield return null;
 
-            
+
 
 
             // 웨이브 바뀔때마다 밤 낮 바뀌게 하자 1라운드 = 아침 , 2라운드 = 밤
